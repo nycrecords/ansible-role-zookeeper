@@ -1,2 +1,4 @@
 ---
-- src: lean_delivery.java
+- src: https://github.com/nycrecords/ansible-role-java
+  version: master
+  name: nycrecords.java
