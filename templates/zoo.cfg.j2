@@ -47,12 +47,11 @@ standaloneEnabled={{ zk_standalone_enabled }}
 {% if zk_config | length %}
 {{ zk_config | to_nice_yaml | regex_replace(': ','=')}}
 {% endif %}
-
+{% if (zk_version is version('3.5.0', '<')) %}
 # the port at which the clients will connect
 clientPort={{ zk_client_port }}
+{% endif %}
 
-# the address that clients attempt to connect to
-clientPortAddress={{ ansible_host }}
 
 {% if (zk_version is version('3.5.0', '<')) %}
 {%- set ips = [] %}
